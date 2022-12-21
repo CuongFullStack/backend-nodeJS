@@ -1,0 +1,26 @@
+{
+  "name": "full-backend-zero",
+  "version": "1.0.0",
+  "description": "backend zero",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CuongFullStack/backend-nodeJS.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "cuong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CuongFullStack/backend-nodeJS/issues"
+  },
+  "homepage": "https://github.com/CuongFullStack/backend-nodeJS#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
