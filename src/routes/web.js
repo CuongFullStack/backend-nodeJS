@@ -1,19 +1,17 @@
 const express = require("express");
+const {
+  getHomepage,
+  getABC,
+  getCuong,
+} = require("../controllers/homeController");
 
 const router = express.Router();
 
 //Khai báo route
-router.get("/", (req, res) => {
-  res.send("Hello World! nodemon");
-});
+router.get("/", getHomepage);
 
-router.get("/abc", (req, res) => {
-  res.send("check ABC");
-});
+router.get("/abc", getABC);
 
-router.get("/cuong", (req, res) => {
-  // res.send("<h1>cuong hoc backend</h1>");
-  res.render("sample.ejs");
-});
+router.get("/cuong", getCuong);
 
 module.exports = router; //export default
