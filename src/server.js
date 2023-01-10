@@ -8,12 +8,16 @@ const app = express(); //app express
 const port = process.env.PORT || 8888; //port => hardcode .uat .prod
 const hostname = process.env.HOST_NAME;
 
+// config req.body
+app.use(express.json()); //utilizes the body-parser package
+app.use(express.urlencoded({ extended: true }));
+
 //config template engine
 //config static files: image/css/js
 configViewEngine(app);
 
 //Khai báo route
-app.use("/v1", webRoutes);
+app.use("/", webRoutes);
 app.use("/v2", webRoutes);
 
 // simple query

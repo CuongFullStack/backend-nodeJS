@@ -11,8 +11,14 @@ const getCuong = (req, res) => {
   res.render("sample.ejs");
 };
 
+const postCreateUser = (req, res) => {
+  console.log(">>>req.body: ", req.body);
+  res.send("create a new user");
+};
+
 module.exports = {
   getHomepage,
   getABC,
   getCuong,
+  postCreateUser,
 };
