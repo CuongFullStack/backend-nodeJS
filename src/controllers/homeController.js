@@ -13,22 +13,34 @@ const getCuong = (req, res) => {
   res.render("sample.ejs");
 };
 
-const postCreateUser = (req, res) => {
+const postCreateUser = async (req, res) => {
   let { email, name, city } = req.body;
   console.log(">>> email =", email, "name= ", name, "city= ", city);
 
   // INSERT INTO Users (email, name, city)
   // VALUES ('test', 'cuong', 'Thai Nguyen');
 
-  connection.query(
+  // connection.query(
+  //   `INSERT INTO Users (email, name, city)
+  //   VALUES (?, ?, ?)`,
+  //   [email, name, city],
+  //   function (err, results) {
+  //     console.log(results);
+  //     res.send("Created user succeed!");
+  //   }
+  // );
+
+  const [results, fields] = await connection.query(
     `INSERT INTO Users (email, name, city)
-    VALUES (?, ?, ?)`,
-    [email, name, city],
-    function (err, results) {
-      console.log(results);
-      res.send("Created user succeed!");
-    }
+  VALUES (?, ?, ?)`,
+    [email, name, city]
   );
+  console.log(">>>check results: ", results);
+  res.send("Created user succeed!");
+};
+
+const getCreatePage = (req, res) => {
+  res.render("create.ejs");
 };
 
 module.exports = {
@@ -36,4 +48,5 @@ module.exports = {
   getABC,
   getCuong,
   postCreateUser,
+  getCreatePage,
 };
