@@ -25,12 +25,11 @@ app.use("/v2", webRoutes);
 //   // console.log(err);
 //   console.log(">>>results=", results); // results contains rows returned by server
 // });
-
-const simpleQuery = async () => {
-  const [results, fields] = await connection.query(`select * from Users u`);
-  console.log(">>>check results: ", results);
-};
-simpleQuery();
+// const simpleQuery = async () => {
+//   const [results, fields] = await connection.query(`select * from Users u`);
+//   console.log(">>>check results: ", results);
+// };
+// simpleQuery();
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);
