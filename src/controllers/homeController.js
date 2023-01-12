@@ -61,7 +61,6 @@ const postUpdateUser = async (req, res) => {
 };
 
 const postDeleteUser = async (req, res) => {
-  4;
   const userId = req.params.id;
   let user = await getUserById(userId);
   res.render("delete.ejs", { userEdit: user });

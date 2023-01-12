@@ -16,20 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 //config static files: image/css/js
 configViewEngine(app);
 
-//Khai báo route
+// Khai báo route
 app.use("/", webRoutes);
-app.use("/v2", webRoutes);
 
-// simple query
-// connection.query("select * from Users u", function (err, results, fields) {
-//   // console.log(err);
-//   console.log(">>>results=", results); // results contains rows returned by server
-// });
-// const simpleQuery = async () => {
-//   const [results, fields] = await connection.query(`select * from Users u`);
-//   console.log(">>>check results: ", results);
-// };
-// simpleQuery();
+//Test connection
+connection();
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);
