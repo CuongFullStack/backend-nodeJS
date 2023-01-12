@@ -8,7 +8,7 @@ const {
 const user = require("../models/user");
 
 const getHomepage = async (req, res) => {
-  let results = [];
+  let results = await user.find({});
   return res.render("home.ejs", { listUsers: results });
 };
 
@@ -23,14 +23,11 @@ const getCuong = (req, res) => {
 
 const postCreateUser = async (req, res) => {
   let { email, name, city } = req.body;
-  console.log(">>> email =", email, "name= ", name, "city= ", city);
-
   await user.create({
     email,
     name,
     city,
   });
-
   res.send("Created user succeed!");
 };
 
