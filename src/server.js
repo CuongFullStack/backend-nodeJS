@@ -3,7 +3,6 @@ const express = require("express"); //commonjs
 const configViewEngine = require("./config/viewEngine");
 const webRoutes = require("./routes/web");
 const connection = require("./config/database");
-const kitten = require("./models/kitten");
 
 const app = express(); //app express
 const port = process.env.PORT || 8888; //port => hardcode .uat .prod
@@ -19,9 +18,6 @@ configViewEngine(app);
 
 // Khai báo route
 app.use("/", webRoutes);
-
-const cat = new kitten({ name: "Hoi Dan IT cat def abc" });
-cat.save();
 
 (async () => {
   //Test connection

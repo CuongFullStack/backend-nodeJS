@@ -5,9 +5,10 @@ const {
   updateUserById,
   deleteUserById,
 } = require("../services/CRUDService");
+const user = require("../models/user");
 
 const getHomepage = async (req, res) => {
-  let results = await getAllUsers();
+  let results = [];
   return res.render("home.ejs", { listUsers: results });
 };
 
@@ -24,12 +25,12 @@ const postCreateUser = async (req, res) => {
   let { email, name, city } = req.body;
   console.log(">>> email =", email, "name= ", name, "city= ", city);
 
-  const [results, fields] = await connection.query(
-    `INSERT INTO Users (email, name, city)
-  VALUES (?, ?, ?)`,
-    [email, name, city]
-  );
-  console.log(">>>check results: ", results);
+  await user.create({
+    email,
+    name,
+    city,
+  });
+
   res.send("Created user succeed!");
 };
 
