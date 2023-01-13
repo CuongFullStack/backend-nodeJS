@@ -4,10 +4,15 @@ const configViewEngine = require("./config/viewEngine");
 const webRoutes = require("./routes/web");
 const apiRoutes = require("./routes/api");
 const connection = require("./config/database");
+const fileUpload = require("express-fileupload");
 
 const app = express(); //app express
 const port = process.env.PORT || 8888; //port => hardcode .uat .prod
 const hostname = process.env.HOST_NAME;
+
+//config file upload
+// default options
+app.use(fileUpload());
 
 // config req.body
 app.use(express.json()); //utilizes the body-parser package
