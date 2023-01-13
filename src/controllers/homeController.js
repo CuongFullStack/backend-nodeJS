@@ -43,21 +43,10 @@ const getUpdatePage = async (req, res) => {
 
 const postUpdateUser = async (req, res) => {
   let { email, name, city, userId } = req.body;
-  console.log(
-    ">>> email =",
-    email,
-    "name= ",
-    name,
-    "city= ",
-    city,
-    "userId= ",
-    userId
-  );
   await user.updateOne(
     { _id: userId },
     { name: name, email: email, city: city }
   );
-  // res.send("Updated user succeed!");
   res.redirect("/");
 };
 
