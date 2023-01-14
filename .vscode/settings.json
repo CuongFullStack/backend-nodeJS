@@ -1,0 +1,6 @@
+{
+  "turboConsoleLog.addSemicolonInTheEnd": true,
+  "turboConsoleLog.insertEmptyLineAfterLogMessage": true,
+  "turboConsoleLog.insertEmptyLineBeforeLogMessage": true,
+  "turboConsoleLog.wrapLogMessage": false
+}

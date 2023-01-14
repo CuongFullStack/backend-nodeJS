@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { updateUserById } = require("../services/CRUDService");
 
 //shape data
 const customerSchema = new mongoose.Schema(
@@ -15,6 +14,6 @@ const customerSchema = new mongoose.Schema(
   { timestamps: true } // createdAt, updatedAt
 );
 
-const Customer = mongoose.model("user", ustomerSchema);
+const Customer = mongoose.model("user", customerSchema);
 
 module.exports = Customer;
