@@ -13,6 +13,7 @@ const {
   postCreateArrayCustomer,
   getAllCustomers,
   putUpdateOneCustomer,
+  deleteACustomer,
 } = require("../controllers/customerController");
 
 //Khai báo router
@@ -28,5 +29,6 @@ routerAPI.post("/customers", postCreateCustomer);
 routerAPI.post("/customers-many", postCreateArrayCustomer);
 routerAPI.get("/customers", getAllCustomers);
 routerAPI.put("/customers", putUpdateOneCustomer);
+routerAPI.delete("/customers", deleteACustomer);
 
 module.exports = routerAPI; //export default
