@@ -11,6 +11,8 @@ const {
 const {
   postCreateCustomer,
   postCreateArrayCustomer,
+  getAllCustomers,
+  putUpdateOneCustomer,
 } = require("../controllers/customerController");
 
 //Khai báo router
@@ -24,5 +26,7 @@ routerAPI.post("/files", postUploadMultipleFilesAPI);
 
 routerAPI.post("/customers", postCreateCustomer);
 routerAPI.post("/customers-many", postCreateArrayCustomer);
+routerAPI.get("/customers", getAllCustomers);
+routerAPI.put("/customers", putUpdateOneCustomer);
 
 module.exports = routerAPI; //export default
