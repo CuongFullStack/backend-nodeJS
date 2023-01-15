@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 //shape data
 const customerSchema = new mongoose.Schema(
   {
-    // _id: uuid, //Tự tạo
     name: { type: String, required: true },
     address: String,
     phone: String,
@@ -14,6 +13,6 @@ const customerSchema = new mongoose.Schema(
   { timestamps: true } // createdAt, updatedAt
 );
 
-const Customer = mongoose.model("user", customerSchema);
+const Customer = mongoose.model("customers", customerSchema);
 
 module.exports = Customer;
