@@ -11,7 +11,17 @@ const customerSchema = new mongoose.Schema(
     image: String,
     description: String,
   },
-  { timestamps: true } // createdAt, updatedAt
+  {
+    timestamps: true, // createdAt, updatedAt
+    statics: {
+      findByHoiDanIT(name) {
+        return this.find({ name: new RegExp(name, "i") });
+      },
+      findByCuong(name) {
+        return this.find({ name: new RegExp(name, "i") });
+      },
+    },
+  }
 );
 
 // Override all methods
