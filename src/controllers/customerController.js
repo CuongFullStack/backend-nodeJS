@@ -54,9 +54,10 @@ module.exports = {
     console.log(req.query);
     let limit = req.query.limit;
     let page = req.query.page;
+    let name = req.query.name;
     let result = null;
     if (limit && page) {
-      result = await getAllCustomersService(limit, page);
+      result = await getAllCustomersService(limit, page, name);
     } else {
       result = await getAllCustomersService();
     }
