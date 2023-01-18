@@ -5,6 +5,7 @@ const webRoutes = require("./routes/web");
 const apiRoutes = require("./routes/api");
 const connection = require("./config/database");
 const fileUpload = require("express-fileupload");
+const { MongoClient } = require("mongodb");
 
 const app = express(); //app express
 const port = process.env.PORT || 8888; //port => hardcode .uat .prod
@@ -29,7 +30,11 @@ app.use("/v1/api", apiRoutes);
 (async () => {
   //Test connection
   try {
+    //
     await connection();
+
+    //using mongodb driver
+
     app.listen(port, hostname, () => {
       console.log(`Backend zero app listening on port ${port}`);
     });

@@ -7,6 +7,7 @@ const {
   deleteArrayCustomerService,
 } = require("../services/customerService");
 const { uploadSingleFile } = require("../services/fileService");
+const aqp = require("api-query-params");
 
 module.exports = {
   postCreateCustomer: async (req, res) => {
@@ -56,8 +57,9 @@ module.exports = {
     let page = req.query.page;
     let name = req.query.name;
     let result = null;
+
     if (limit && page) {
-      result = await getAllCustomersService(limit, page, name);
+      result = await getAllCustomersService(limit, page, name, req.query);
     } else {
       result = await getAllCustomersService();
     }
