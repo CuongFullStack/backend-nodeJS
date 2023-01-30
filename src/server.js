@@ -31,7 +31,7 @@ app.use("/v1/api", apiRoutes);
   //Test connection
   try {
     // using monggoose
-    // await connection();
+    await connection();
 
     //using mongodb driver
     // Connection URL
@@ -47,8 +47,12 @@ app.use("/v1/api", apiRoutes);
     // collection.insertOne({ name: "Hoi Dan IT" });
     // collection.insertOne({ address: "ha noi", email: "hoidanit@gmail.com" });
     // collection.insertOne({ test: [1, 2, 3] });
-    let a = await collection.findOne({ address: "ha noi" });
-    console.log(">>> find = ", a);
+    // collection.insertOne({
+    //   name: "hoi dan it",
+    //   address: [1, 2],
+    // }); //Nhúng data
+    // let a = await collection.findOne({ address: "ha noi" });
+    // console.log(">>> find = ", a);
 
     app.listen(port, hostname, () => {
       console.log(`Backend zero app listening on port ${port}`);
