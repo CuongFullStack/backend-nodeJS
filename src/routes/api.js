@@ -19,6 +19,8 @@ const {
 const {
   postCreateProject,
   getAllProject,
+  deleteProject,
+  updateProject,
 } = require("../controllers/projectController");
 
 //Khai báo router
@@ -39,6 +41,8 @@ routerAPI.delete("/customers-many", deleteArrayCustomer);
 
 routerAPI.post("/projects", postCreateProject);
 routerAPI.get("/projects", getAllProject);
+routerAPI.put("/projects", updateProject);
+routerAPI.delete("/projects", deleteProject);
 
 routerAPI.get("/info", (req, res) => {
   console.log(">> check query: ", req.query);
