@@ -16,7 +16,10 @@ const {
   deleteACustomer,
   deleteArrayCustomer,
 } = require("../controllers/customerController");
-const { postCreateProject } = require("../controllers/projectController");
+const {
+  postCreateProject,
+  getAllProject,
+} = require("../controllers/projectController");
 
 //Khai báo router
 routerAPI.get("/users", getUsersAPI);
@@ -35,6 +38,7 @@ routerAPI.delete("/customers", deleteACustomer);
 routerAPI.delete("/customers-many", deleteArrayCustomer);
 
 routerAPI.post("/projects", postCreateProject);
+routerAPI.get("/projects", getAllProject);
 
 routerAPI.get("/info", (req, res) => {
   console.log(">> check query: ", req.query);
