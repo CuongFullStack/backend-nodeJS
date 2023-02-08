@@ -35,14 +35,14 @@ app.use("/v1/api", apiRoutes);
 
     //using mongodb driver
     // Connection URL
-    const url = process.env.DB_HOST_WITH_DRIVER;
-    const client = new MongoClient(url);
-    const dbName = process.env.DB_NAME;
-    await client.connect();
-    console.log("Connected successfully to server");
+    // const url = process.env.DB_HOST_WITH_DRIVER;
+    // const client = new MongoClient(url);
+    // const dbName = process.env.DB_NAME;
+    // await client.connect();
+    // console.log("Connected successfully to server");
 
-    const db = client.db(dbName);
-    const collection = db.collection("customers");
+    // const db = client.db(dbName);
+    // const collection = db.collection("customers");
 
     // collection.insertOne({ name: "Hoi Dan IT" });
     // collection.insertOne({ address: "ha noi", email: "hoidanit@gmail.com" });
