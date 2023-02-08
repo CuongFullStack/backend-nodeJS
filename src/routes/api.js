@@ -22,6 +22,12 @@ const {
   deleteProject,
   updateProject,
 } = require("../controllers/projectController");
+const {
+  getAllTask,
+  postCreateTask,
+  updateTask,
+  deleteTask,
+} = require("../controllers/taskController");
 
 //Khai báo router
 routerAPI.get("/users", getUsersAPI);
@@ -43,6 +49,11 @@ routerAPI.post("/projects", postCreateProject);
 routerAPI.get("/projects", getAllProject);
 routerAPI.put("/projects", updateProject);
 routerAPI.delete("/projects", deleteProject);
+
+routerAPI.get("/tasks", getAllTask);
+routerAPI.post("/tasks", postCreateTask);
+routerAPI.put("/tasks", updateTask);
+routerAPI.delete("/tasks", deleteTask);
 
 routerAPI.get("/info", (req, res) => {
   console.log(">> check query: ", req.query);

@@ -26,6 +26,16 @@ module.exports = {
       let newResult2 = await myProject.save();
       return newResult2;
     }
+
+    if (data.type === "ADD-TASKS") {
+      let myProject = await Project.findById(data.projectId).exec();
+      // myProject.usersInfor.push(...data.usersArr);
+      for (let i = 0; i < data.tasksArr.length; i++) {
+        myProject.tasks.push(data.tasksArr[i]);
+      }
+      let newResult = await myProject.save();
+      return newResult;
+    }
     return null;
   },
 
@@ -33,18 +43,15 @@ module.exports = {
     const page = queryString.page;
 
     const { filter, limit, population } = aqp(queryString);
-
     console.log("aqp(queryString) :", aqp(queryString));
-    console.log("before", filter, limit, population);
-
+    console.log("before", filter, limit);
     delete filter.page;
-
-    console.log("after", filter, limit, population);
+    console.log("after", filter, limit);
 
     let offset = (page - 1) * limit;
 
     let result = await Project.find(filter)
-      .populate(filter.population)
+      .populate(population)
       .skip(offset)
       .limit(limit)
       .exec();
